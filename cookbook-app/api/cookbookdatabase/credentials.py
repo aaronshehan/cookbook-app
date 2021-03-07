@@ -1,0 +1,1 @@
+DB_CONNECTION_URI = 'mongodb+srv://aaron:Fcdallas28%23@cluster0.h9bru.mongodb.net/Cookbook?retryWrites=true&w=majority'

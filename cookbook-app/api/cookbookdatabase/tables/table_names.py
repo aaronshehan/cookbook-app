@@ -1,0 +1,9 @@
+COOKBOOK_DATABASE_NAME = 'Cookbook'
+
+USERS_TABLE_NAME = 'users_table'
+RECIPES_TABLE_NAME = 'recipes_table'
+
+TABLE_NAMES = [
+    USERS_TABLE_NAME,
+    RECIPES_TABLE_NAME,
+]
