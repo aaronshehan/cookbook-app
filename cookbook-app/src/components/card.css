@@ -1,0 +1,49 @@
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.ingredients {
+    background-color: khaki;
+    width: 2em;
+    border: 2px;
+    padding: 20px
+}
+
+.one {
+    flex: 1 1 0;
+}
+
+.two {
+    flex: 1 1 0;
+}
+
+.three {
+    flex: 3 1 0;
+}
+
+.box {
+    background-color: lightgrey;
+    height: 5rem;
+    border: 2px solid green;
+    padding: 2px;
+    margin-right: 40px;
+    padding-right: 4rem;
+}
+
+.directions {
+    background-color: lightgrey;
+    height: 4em;
+    border: 2px solid green;
+    padding: 2px;
+    margin-right: 40px;
+    padding-right: 4rem;
+}
+
+.card-img-left {
+    float: left;
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+}

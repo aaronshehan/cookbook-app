@@ -1,0 +1,7 @@
+.home .list{
+    width: 80vw;
+    margin-left: 5vw;
+    height: 100vh;
+    overflow: auto;
+    margin-bottom: 5rem;
+}

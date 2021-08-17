@@ -23,12 +23,22 @@ class MongoDbTable:
     def set_table(self, table):
         self.table = table
 
-    def doesIdExist(self, id):
+    def does_id_exist(self, id):
         return self._table.find({'_id': id}).count() > 0
 
-    def getAll(self, field, value):
-        recipes = list(self._table.find({field: value}))
-        return dumps(recipes)
+    def find(self, field, value):
+        return self._table.find({field: value})
+
+    def find_one(self, field, value):
+        return self._table.find_one({field: value})
+
+    def get_all(self, field, value):
+        docs = list(self._table.find({field: value}))
+        return dumps(docs)
+
+    def get_random_docs(self, id, number):
+        random_docs = list(self._table.aggregate([{ "$match": { "user_id": { "$ne": id } } },{'$sample': {'size': number}}]))
+        return dumps(random_docs)
 
     def insert(self, data):
         return self._table.insert_one(data)
@@ -36,11 +46,15 @@ class MongoDbTable:
     def add_to_set(self, id, field, new_value):
         return self._table.update_one({'_id': id}, { '$addToSet': { field: new_value }})
 
-    def modify(self):
-        pass
+    def update(self, id, data):
+        self._table.update({'_id': id}, {"$set": data})
 
     def delete(self, id):
         self._table.delete_one( { '_id': id } )
 
     def delete_from_set(self, id, field, value_to_delete):
         self._table.update({ '_id': id }, { '$pull': { field:  value_to_delete} })
+
+    def get_field(self, id, field):
+        doc = self._table.find_one({'_id': id})
+        return doc[field] if field in doc.keys() else []
